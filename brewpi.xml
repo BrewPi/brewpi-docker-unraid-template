@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Beta>False</Beta>
+  <Category>Other:</Category>
+  <Date>2017-07-21</Date>
+  <Name>brewpi-wifi</Name>
+  <Description>
+    BrewPi is an open source temprature controller availible at https://www.brewpi.com/ [br]
+    This docker container runs the brewpi web server to log data and connect to a BrewPi Spark over WiFi [br]
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+    [b]/data[/b] This is where brewpi saves its recorded data and settings. Map it to a folder on the host[br]
+    [b]After starting the container, please go to the settings dir on the host and copy config.cfg.example to config.cfg[br]
+    [b]In config.cfg, add: port = socket://<ipaddress of the brewpi spark>:6666[br]
+  </Description>
+  <Overview>
+    BrewPi is an open source temprature controller availible at https://www.brewpi.com/
+  </Overview>
+  <Support>https://community.brewpi.com</Support>
+  <Registry>https://hub.docker.com/r/brewpi/brewpi-ubuntu/</Registry>
+  <GitHub>https://github.com/brewpi/brewpi-docker-unraid-template/</GitHub>
+  <Repository>brewpi/brewpi-ubuntu</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+  </Environment>    
+  <Data>
+    <Volume>
+      <HostDir>Path to data and settings</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <Banner></Banner>
+  <Icon>https://raw.githubusercontent.com/BrewPi/brewpi-docker-unraid-template/master/brewpi.png</Icon>
+</Containers>
